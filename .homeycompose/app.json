@@ -1,0 +1,28 @@
+{
+  "id": "com.huawei.fusionsolar-modbus",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Homey-Fusionsolar-Modbus"
+  },
+  "description": {
+    "en": "Adds support for Huawei Fusion solar modbus communication"
+  },
+  "category": [
+    "energy"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Wouter Reyntjens",
+    "email": "wouter@chismoor.net"
+  }
+}

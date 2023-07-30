@@ -1,0 +1,80 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.huawei.fusionsolar-modbus",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Homey-Fusionsolar-Modbus"
+  },
+  "description": {
+    "en": "Adds support for Huawei Fusion solar modbus communication"
+  },
+  "category": [
+    "energy"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Wouter Reyntjens",
+    "email": "wouter@chismoor.net"
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Modbus"
+      },
+      "class": "solarpanel",
+      "capabilities": [],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/modbus/assets/images/small.png",
+        "large": "/drivers/modbus/assets/images/large.png",
+        "xlarge": "/drivers/modbus/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "modbus"
+        }
+      ],
+      "settings": [
+        {
+          "id": "ip",
+          "type": "text",
+          "label": {
+            "en": "Inverter IP"
+          }
+        },
+        {
+          "id": "port",
+          "type": "text",
+          "label": {
+            "en": "Inverter port"
+          }
+        },
+        {
+          "id": "battery",
+          "type": "checkbox",
+          "value": false,
+          "label": {
+            "en": "Home battery",
+            "nl": "Thuisbatterij"
+          }
+        }
+      ],
+      "id": "modbus"
+    }
+  ]
+}
