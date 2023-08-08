@@ -9,8 +9,6 @@ class LunaDevice extends Homey.Device {
     this.log("LunaDevice has been initialized");
     const modbus = new LunaModbus("172.30.27.38");
     // modbus.connect();
-    let bla = await modbus.pollInverter();
-    console.log(bla);
   }
 
   /**

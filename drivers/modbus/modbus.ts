@@ -10,13 +10,12 @@ export class LunaModbus {
     rated_power: [30073, 2, "U32", "Rated power"],
   };
   timer: NodeJS.Timeout | null = null;
-  POLLING_INTERVAL: number = 2000;
+  POLLING_INTERVAL: number = 4000;
 
   constructor(ip: string, port: number = 502) {
     this.ip = ip;
     this.port = port;
     this.client = new ModbusRTU();
-    this.client.setID(1);
     this.timer = setTimeout(() => {
       this.pollInverter();
     }, this.POLLING_INTERVAL);
@@ -79,7 +78,10 @@ export class LunaModbus {
         reject("Modbus timeout");
       }, 2000);
       try {
+        this.client.setID(1);
+
         holdingRegisters = await this.client.readHoldingRegisters(start, count);
+        this.client.close;
       } catch (err: any) {
         clearTimeout(timeout);
         reject(err?.message || "Modbus timeout");
@@ -94,19 +96,24 @@ export class LunaModbus {
   }
 
   async pollInverter() {
-    this.checkConnection();
-    if (this.isConnected) {
-      try {
-        const results = await this.readRegisters(30073, 2);
-        this.reconnectCounter = 0;
-      } catch (err) {
-        console.log(err);
-      }
+    // this.checkConnection();
+    // if (this.isConnected) {
+    try {
+      // registers = {
+      //     rated_power: [30073, 2, "U32", "Rated power"],
+      //     input_power: [32064, 2, "I32", "Input power"],
+      //   };
+      const results = await this.readRegisters(30073, 2);
+      this.reconnectCounter = 0;
+      console.log(results);
+    } catch (err) {
+      console.log(err);
     }
+    // }
 
     this.timer = setTimeout(() => {
       this.pollInverter();
-    }, 2000);
+    }, 5000);
   }
 }
 //   async initializeSession() {

@@ -15,7 +15,10 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "jsmodbus": "^4.0.6",
+    "modbus": "^1.1.1",
     "modbus-serial": "^8.0.5-no-serial-port",
+    "net": "^1.0.2",
     "uuid": "^9.0.0"
   }
 }
